@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.digitalmodularbanking.mynote.feature.data.data_source.NoteDatabase
 import com.digitalmodularbanking.mynote.feature.data.repository.NoteRepositoryImpl
 import com.digitalmodularbanking.mynote.feature.domain.repository.NoteRepository
+import com.digitalmodularbanking.mynote.feature.domain.use_case.AddNoteUseCase
 import com.digitalmodularbanking.mynote.feature.domain.use_case.DeleteNoteUseCase
 import com.digitalmodularbanking.mynote.feature.domain.use_case.GetNotesUseCase
 import com.digitalmodularbanking.mynote.feature.domain.use_case.NoteUseCases
@@ -39,7 +40,8 @@ object AppModule {
     fun provideNoteUseCases(repository: NoteRepository): NoteUseCases{
         return NoteUseCases(
             getNotesUseCase = GetNotesUseCase(repository),
-            deleteNoteUseCase = DeleteNoteUseCase(repository)
+            deleteNoteUseCase = DeleteNoteUseCase(repository),
+            addNoteUseCase = AddNoteUseCase(repository)
         )
     }
 }
