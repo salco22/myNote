@@ -7,6 +7,7 @@
             android:name=".NoteApplication"
             android:label="@string/app_name"
             android:theme="@style/MyNoteTheme">
+
         <activity
                 android:name=".feature.presentation.MainActivity"
                 android:launchMode="singleTop"
@@ -16,5 +17,18 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <provider
+                android:authorities="com.digitalmodularbanking.mynote.androidx-startup"
+                android:name="androidx.startup.InitializationProvider"
+                android:exported="false"
+                tools:node="merge">
+
+            <meta-data
+                android:name="com.digitalmodularbanking.mynote.feature.initializers.TimberInitializer"
+                android:value="androidx.startup"/>
+
+        </provider>
+
     </application>
 </manifest>
